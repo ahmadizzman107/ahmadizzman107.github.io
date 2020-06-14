@@ -1,88 +1,146 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <title>FSKTM Technovations</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+    <!-- Favicons -->
+    <link href="/assets/img/techno.png" rel="icon">
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-            .full-height {
-                height: 100vh;
-            }
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+    <!-- Vendor CSS Files -->
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/vendor/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="/assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 
-            .position-ref {
-                position: relative;
-            }
+    <!-- Template Main CSS File -->
+    <link href="/assets/css/style.css" rel="stylesheet">
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+    <!-- =======================================================
+    * Template Name: BizPage - v2.0.0
+    * Template URL: https://bootstrapmade.com/bizpage-bootstrap-business-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+    <style>
+        #p1 {background-color:rgba(255,255,255,0.1);}
+    </style>
+</head>
 
-            .content {
-                text-align: center;
-            }
+<body>
+<!-- Back to Top -->
+<a href="#" class="back-to-top btn btn-primary btn-lg" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
+<!-- ======= Header ======= -->
+<header id="header">
+    <div class="container-fluid">
 
-            .title {
-                font-size: 84px;
-            }
+        <div id="logo" class="pull-left">
+            <img src="/assets/img/techno.png" width="70" height="70">
+            <!-- Uncomment below if you prefer to use an image logo -->
+        </div>
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+        <nav id="nav-menu-container">
+            <ul class="nav-menu">
+                <li class="menu-active"><a href="#intro">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Events</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#footer">Contact</a></li>
+            </ul>
+        </nav><!-- #nav-menu-container -->
+    </div>
+</header><!-- End Header -->
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
+@include('front.intro')
+
+<main id="main">
+
+    @include('front.about')<!-- About Us -->
+
+    @include('front.services')<!-- Services -->
+
+    @include('front.facts')<!-- Stories -->
+
+    @include('front.portfolio')<!-- Events -->
+
+    @include('front.clients')<!-- Clients -->
+
+    @include('front.team')<!-- Team -->
 
 
-            <div class="content">
-                <div class="title m-b-md">
-                    FYP
-                </div>
+</main><!-- End #main -->
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                @include('inc.visit')<!-- Company Address -->
+
+                @include('inc.link')<!-- Useful Links -->
+
+                @include('inc.contacts')<!-- Contact Info -->
+
+                @include('inc.feedback')<!-- Feedback Form -->
+
             </div>
         </div>
-    </body>
+    </div>
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong>BizPage</strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+            <!--
+            All the links in the footer should remain intact.
+            You can delete the links only if you purchased the pro version.
+            Licensing information: https://bootstrapmade.com/license/
+            Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
+          -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+<!-- Uncomment below i you want to use a preloader -->
+
+<!-- Vendor JS Files -->
+<script src="/assets/vendor/jquery/jquery.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="/assets/vendor/php-email-form/validate.js"></script>
+<script src="/assets/vendor/wow/wow.min.js"></script>
+<script src="/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+<script src="/assets/vendor/counterup/counterup.min.js"></script>
+<script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="/assets/vendor/venobox/venobox.min.js"></script>
+<script src="/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+<script src="/assets/vendor/superfish/superfish.min.js"></script>
+<script src="/assets/vendor/hoverIntent/hoverIntent.js"></script>
+<script src="/assets/vendor/jquery-touchswipe/jquery.touchSwipe.min.js"></script>
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+{!! Toastr::message() !!}
+
+<!-- Template Main JS File -->
+<script src="/assets/js/main.js"></script>
+
+</body>
+
 </html>

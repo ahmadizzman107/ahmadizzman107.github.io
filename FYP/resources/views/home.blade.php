@@ -14,7 +14,11 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <div>
+                        <h2>
+                            <a href={{ route('posts.index') }}>Posts page</a>
+                        </h2>
+                    </div>
                 </div>
             </div>
         </div>

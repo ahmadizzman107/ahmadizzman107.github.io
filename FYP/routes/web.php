@@ -14,11 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::resource('/','WelcomeController');
+Route::get('/{slug}','WelcomeController@showPage');
 Auth::routes();
-
-Route::get('/admin', 'HomeController@index')->name('home');
-Route::get('/event', 'HomeController@index')->name('reg');
+Route::get('/admin', 'HomeController@index')->name('admin');
+Route::resource('admin/posts','PostsController');
