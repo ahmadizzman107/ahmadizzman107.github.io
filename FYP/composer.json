@@ -11,6 +11,7 @@
         "php": "^7.2.5",
         "ext-json": "*",
         "botman/botman": "^2.6",
+        "botman/driver-telegram": "^1.5",
         "brian2694/laravel-toastr": "^5.53",
         "buttercms/buttercms-php": "^2.3",
         "doctrine/dbal": "^2.10",
