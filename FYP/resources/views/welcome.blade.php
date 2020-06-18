@@ -138,6 +138,15 @@
 <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 {!! Toastr::message() !!}
 
+<script>
+var botmanWidget = {
+    bubbleBackground: 'rgb(197,0,197)',
+    title: 'Technovations Assistant',
+    frameEndpoint: '/chat'    
+};
+</script>
+<script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+
 <!-- Template Main JS File -->
 <script src="/assets/js/main.js"></script>
 
