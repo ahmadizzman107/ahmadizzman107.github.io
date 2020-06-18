@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('/','WelcomeController');
-Route::get('/{slug}','WelcomeController@showPage');
+Route::get('/pages/{slug}','WelcomeController@showPage');
+Route::get('/pay','WelcomeController@showPay');
+Route::get('/chat','WelcomeController@showChat');
 Auth::routes();
 Route::get('/admin', 'HomeController@index')->name('admin');
 Route::resource('admin/posts','PostsController');
