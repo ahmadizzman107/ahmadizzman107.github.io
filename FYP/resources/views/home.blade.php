@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('title')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -14,11 +15,7 @@
                         </div>
                     @endif
 
-                    <div>
-                        <h2>
-                            <a href={{ route('posts.index') }}>Posts page</a>
-                        </h2>
-                    </div>
+                    You are logged in!
                 </div>
             </div>
         </div>
