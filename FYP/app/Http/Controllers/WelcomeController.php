@@ -10,9 +10,10 @@ use ButterCMS\ButterCMS;
 use BotMan\BotMan\BotMan;
 use BotMan\BotMan\BotManFactory;
 use BotMan\BotMan\Drivers\DriverManager;
-
+use \BotMan\Drivers\Telegram\TelegramDriver;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 
 
 class WelcomeController extends Controller
@@ -27,19 +28,19 @@ class WelcomeController extends Controller
 
     public function index()
     {
-        $config = [
-                "telegram" => [
-                "token" => "823682666:AAHDf4uXrcE-EuSnUc4aME7MCOnVCuEIibI"
-                ]
-            ];
-        DriverManager::loadDriver(\BotMan\Drivers\Telegram\TelegramDriver::class);
-        $botman = BotManFactory::create($config);
-        $botman->hears('hello',function(BotMan $bot){
-            $bot->reply('hi');
-        });
+        // $config = [
+        //         "telegram" => [
+        //         "token" => "823682666:AAHDf4uXrcE-EuSnUc4aME7MCOnVCuEIibI"
+        //         ]
+        //     ];
+        // DriverManager::loadDriver(TelegramDriver::class);
+        // $botman = BotManFactory::create($config);
+        // $botman->hears('hello',function(BotMan $bot){
+        //     $bot->reply('hi');
+        // });
 
-        $botman->listen();
-        return view('welcome')->with('botman',$botman);
+        // $botman->listen();
+        return view('welcome');
     }
 
     public function store(Request $request)
