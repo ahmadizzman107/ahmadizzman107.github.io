@@ -20,6 +20,11 @@ class WelcomeController extends Controller
 {
     private static $apiToken = '67b4366af05dd5c4b14f1bacc2246f4c27d0963b';
     private $client;
+    private $configs = [
+        "telegram" => [
+        "token" => "1171590624:AAGTNATxBhw-9UpSiIPoy5LqODQU1PCEW34"
+        ]
+    ];
     
     public function __construct(){
         $this->client = new ButterCMS(WelcomeController::$apiToken);
@@ -28,18 +33,7 @@ class WelcomeController extends Controller
 
     public function index()
     {
-        // $config = [
-        //         "telegram" => [
-        //         "token" => "823682666:AAHDf4uXrcE-EuSnUc4aME7MCOnVCuEIibI"
-        //         ]
-        //     ];
-        // DriverManager::loadDriver(TelegramDriver::class);
-        // $botman = BotManFactory::create($config);
-        // $botman->hears('hello',function(BotMan $bot){
-        //     $bot->reply('hi');
-        // });
-
-        // $botman->listen();
+        
         return view('welcome');
     }
 
@@ -71,10 +65,19 @@ class WelcomeController extends Controller
                         'payment_method_types' => ['card'],
                         'receipt_email' => 'jenny.rosen@example.com',
                     ]);
-        return view('stripe')->with('stripe',$stripe);
+        return view('stripe');
     }
 
     public function showChat(){
+        
+        DriverManager::loadDriver(TelegramDriver::class);
+        $botman = BotManFactory::create($this->configs);
+        
+        $botman->hears('hello',function(BotMan $bot){
+            $bot->reply('hi');
+        });
+
+        $botman->listen();
         return view('chat');
     }
 }
