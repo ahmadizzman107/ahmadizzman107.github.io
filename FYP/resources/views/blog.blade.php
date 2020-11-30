@@ -1,12 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title')
 @section('content')
-<div class="container">
+<div class="container" style="padding-top: 50px;">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+        <div class="col-md-8" >
+            <div class="card" style="box-shadow:-5px 2px;">
+                <div class="card-header" style="background-color: #3A0B37;color: white;">Dashboard</div>
 
                 <div class="card-body">
                     @if (session('status'))

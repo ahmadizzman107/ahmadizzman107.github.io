@@ -72,9 +72,9 @@
                             </li>
                             
                             @if (Route::has('register'))
-                                <li class="nav-item"><!-- 
+                                <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li> -->
+                                </li>
                             @endif
                         @else
                             <a class="nav-link" href="{{ route('blog') }}">{{ __('Blog') }}</a>
@@ -95,6 +95,7 @@
                                     </form>
                                 </div>
                             </li>
+                        
                         @endguest
                     </ul>
                 </div>

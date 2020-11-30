@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <script>
@@ -12,7 +12,7 @@
         }
     </script>
     
-    <div class="container">
+    <div class="container" style="padding-top: 50px;">
         <h1>{{$post->title}}</h1>
         <div>
             <img src={{asset('storage/images/'.$post->image)}}>
