@@ -13,22 +13,28 @@
     </script>
     
     <div class="container">
+        <div>
+            <a href="{{ url()->previous() }}">Back</a>
+        </div>
         <h1>{{$post->title}}</h1>
         <div>
-            <img src={{asset('storage/images/'.$post->image)}}>
+            <img src={{ $imagePath }}>
         </div>
         <div>
             <p>{{$post->body}}</p>
+        </div>
+        <div>
         </div>
         <hr>
         <small>Posted at {{$post->created_at}}</small>
         <hr>
         <div>
-            <a href="/admin/posts/{{$post->id}}/edit" class="btn btn-primary">Edit</a>
-            {!! Form::open(['action' => ['PostsController@destroy',$post->id],'method' => 'POST','onsubmit'=>'return ConfirmDelete()']) !!}
-            {{Form::hidden('_method','DELETE')}}
-            {{Form::submit('Delete',['class'=>'btn btn-danger'])}}
-            {!! Form::close() !!}
+            <a href="{{ route('edit',$post->id) }}" class="btn btn-primary">Edit</a>
+            
+            <form action="{{ route('destroy',$post->id) }}" method="POST" onsubmit="return ConfirmDelete()">
+                @csrf
+                <button type="submit">Delete</button>
+            </form>
         </div>
     </div>
 @endsection

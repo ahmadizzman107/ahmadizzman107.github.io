@@ -2,32 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use App\Post;
-use Illuminate\Support\Facades\App;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class PostsController extends Controller
 {
-    
+
 
     public function __construct()
     {
         $this->middleware('auth');
     }
     /**
-     * Display a listing of the resource.
+     * Display all post posted.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $posts = Post::all();
-        return view('posts.index')->with('posts',$posts);
+        $posts = Post::paginate(10);
+        return view('posts.index')->with('posts', $posts);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new post.
      *
      * @return \Illuminate\Http\Response
      */
@@ -37,39 +36,31 @@ class PostsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created post in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'title' => 'required',
-            'body' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-
-        if($files = $request->file('image')) {
-            $imageName = time();
-            $request->file('image')->storeAs('images', $imageName);
-
-            Post::create([
-                'title' => $request->title,
-                'body' => $request->body,
-                'image'=>$imageName,
-            ]);
-        }else{
-            Post::create([
-                'title' => $request->title,
-                'body' => $request->body,
-            ]);
-        }
-
-        return redirect('/admin/posts')->with('success', 'Post created');
+                $request->validate([
+                    'title' => 'required',
+                    'body' => 'required',
+                    'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+                $imageName = time().'.'.$request->image->extension();
+                $request->image->move(public_path('assets/images'), $imageName);// Move file into public path as given name
+                
+                Post::create([
+                    'title' => $request->title,
+                    'body' => $request->body,
+                    'image' => $request->image->getClientOriginalName(),
+                    'url' => $imageName,
+                ]);
+        return redirect()->route('admin');
     }
 
-    /**
+    /* *
      * Display the specified resource.
      *
      * @param  int  $id
@@ -78,7 +69,8 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        return view('posts.show')->with('post',$post);
+        $imagePath = asset('assets/images/'.$post->url);
+        return view('posts.show')->with('post',$post)->with('imagePath',$imagePath);
     }
 
     /**
@@ -87,7 +79,7 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
         $post = Post::find($id);
         return view('posts.edit')->with('post',$post);
@@ -102,29 +94,27 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'title' => 'required',
-            'body' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+        $post = Post::find($id);
+            
+        if($request->image != null){//Check if file input is not empty
+            $imagePath = public_path('assets/images/');
+            
+            if($post->url !='' || $post->url != null){//Check if there is image data in DB
+                File::delete(public_path('assets/images/'.$post->url));
+            }
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('assets/images'), $imageName);//Store new image file
 
-        if($files = $request->file('image')) {
-            $imageName = time();
-            $request->file('image')->storeAs('images', $imageName);
-
-            Post::updateOrCreate(['id'=>$id],[
-                'title' => $request->title,
-                'body' => $request->body,
-                'image'=>$imageName,
-            ]);
-        }else{
-            Post::updateOrCreate(['id'=>$id],[
-                'title' => $request->title,
-                'body' => $request->body,
-            ]);
+            $post->image = $request->image->getClientOriginalName();
+            $post->url = $imageName;
         }
 
-        return redirect('/admin/posts')->with('success', 'Post updated');
+        $post->title = $request->title;//Change DB column value
+        $post->body = $request->body;
+        
+         $post->update();//Update DB (Apply change)
+        
+        return redirect()->route('show',$id);
     }
 
     /**
@@ -135,10 +125,13 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
+        
         $post = Post::find($id);
-        Storage::delete('images/'.$post->image);
+        if($post->url !='' || $post->url != null)
+            File::delete(public_path('assets/images/'.$post->url));//File Facade uses public_path
         $post->delete();
 
-        return redirect('/admin/posts')->with('success','Post deleted');
+        return redirect()->route('admin');    
     }
+
 }

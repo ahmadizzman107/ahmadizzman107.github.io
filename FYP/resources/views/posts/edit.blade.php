@@ -3,22 +3,27 @@
 @section('content')
     <div class="container">
         <h1>Edit Post</h1>
-        {!! Form::open(['action' => ['PostsController@update',$post->id],'files'=>true,'method' => 'POST']) !!}
         <div>
-            {{Form::label('title','Title')}}
-            {{ Form::text('title',$post->title,['placeholder' => 'Title']) }}
+            <a href="{{ url()->previous() }}">Back</a>
+        </div>
+        <form action="{{ route('update',$post->id) }}" method="POST"  enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
+        <div >
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" placeholder="Post Title" value="{{ $post->title }}">
         </div>
         <div>
-            {{Form::label('body','Body')}}
-            {{ Form::textarea('body',$post->body,['placeholder' => 'Body']) }}
+            <label for="body">Body</label>
+            <input type="text" name="body" id="body" placeholder="Post Body" value="{{ $post->body }}">
         </div>
         <div>
-            {{Form::label('image','Image')}}
-            {{Form::file('image')}}
+            <label for="image">Image</label>
+            <input type="file" name="image" id="image">
         </div>
-        {{Form::hidden('_method','PUT')}}
-        {{Form::submit('Edit',['class' => 'btn btn-primary'])}}
-        {!! Form::close() !!}
-
+        <div>
+            <button type="submit">Update</button>
+        </div>
+        </form>
     </div>
 @endsection

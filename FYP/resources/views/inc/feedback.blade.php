@@ -1,7 +1,7 @@
 <div class="col-lg-3 col-md-6 footer-newsletter">
     <h4>Feedback</h4>
     <div>
-        {!! Form::open(['action'=>'WelcomeController@store','method'=>'POST']) !!}
+        {!! Form::open(['action'=>'HomeController@store','method'=>'POST']) !!}
         <div>
             {{ Form::text('name',null,['placeholder'=>'Your Name','style'=>'width: 100%;margin-bottom:10px;padding: 5px 5px']) }}
         </div>

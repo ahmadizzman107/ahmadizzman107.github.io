@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Feedback;
 use Illuminate\Http\Request;
+use Brian2694\Toastr\Facades\Toastr;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
+        
         return view('home');
+    }
+
+    public function store(Request $request)
+    {
+        Feedback::create($request->all());
+        Toastr::success('Post added successfully :)','Success',["positionClass" => "toast-bottom-center"]);
+        return redirect()->back()->with('success','Feedback sent successfully');
+    }
+
+    public function showPosts()
+    {
+        # code...
     }
 }
