@@ -23,9 +23,6 @@ Route::resource('admin/posts','PostsController');
 Auth::routes();
 Route::get('/admin/blog', function () { return view('blog'); })->name('blog');
 
-// Route::get('/home', 'HomeController@index')->name('home');
-// Route::view('/','home');
-
 Route::get('/posts',function(){
 	return view('posts.create');
 });
