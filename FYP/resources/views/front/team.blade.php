@@ -10,7 +10,7 @@
 
             <div class="col-lg-3 col-md-6 wow fadeInUp">
                 <div class="member">
-                    <img src="/assets/img/default-user.jpg" class="img-fluid" alt="">
+                    <img src="/assets/img/team-1.jpg" class="img-fluid" alt="">
                     <div class="member-info">
                         <div class="member-info-content">
                             <h4>Name</h4>
@@ -28,7 +28,7 @@
 
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="member">
-                    <img src="/assets/img/default-user.jpg" class="img-fluid" alt="">
+                    <img src="/assets/img/team-2.jpg" class="img-fluid" alt="">
                     <div class="member-info">
                         <div class="member-info-content">
                             <h4>Name</h4>
@@ -46,7 +46,7 @@
 
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                 <div class="member">
-                    <img src="/assets/img/default-user.jpg" class="img-fluid" alt="">
+                    <img src="/assets/img/team-3.jpg" class="img-fluid" alt="">
                     <div class="member-info">
                         <div class="member-info-content">
                             <h4>Name</h4>
@@ -64,7 +64,7 @@
 
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="member">
-                    <img src="/assets/img/default-user.jpg" class="img-fluid" alt="">
+                    <img src="/assets/img/team-4.jpg" class="img-fluid" alt="">
                     <div class="member-info">
                         <div class="member-info-content">
                             <h4>Name</h4>

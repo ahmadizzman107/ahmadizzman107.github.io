@@ -8,7 +8,7 @@
             <div class="carousel-inner" role="listbox">
 
                 <div class="">
-                    <div class="carousel-background"><img id="p1" src="/assets/img/intro-carousel/purple.png" alt=""></div>
+                    <div class="carousel-background"><img id="p1" src="/assets/img/intro-carousel/purple.jpeg" alt=""></div>
                     <div class="carousel-container">
                         <div class="carousel-content">
                             <h2>FSKTM Technovations</h2>

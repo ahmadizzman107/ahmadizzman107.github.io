@@ -41,13 +41,13 @@
 
 <body>
 <!-- Back to Top -->
-<a href="#" class="back-to-top btn btn-primary btn-lg" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
+
 <!-- ======= Header ======= -->
 <header id="header">
     <div class="container-fluid">
 
         <div id="logo" class="pull-left">
-            <img src="/assets/img/techno.png" width="70" height="70">
+            <img src="/assets/img/techno.png" width="92" height="99">
             <!-- Uncomment below if you prefer to use an image logo -->
         </div>
 
@@ -117,8 +117,6 @@
     </div>
 </footer><!-- End Footer -->
 
-<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
 <!-- Uncomment below i you want to use a preloader -->
 
 <!-- Vendor JS Files -->
@@ -140,7 +138,7 @@
 
 <script>
 var botmanWidget = {
-    bubbleBackground: 'rgb(197,0,197)',
+    bubbleBackground: '#BA55D3',
     title: 'Technovations Assistant',
     frameEndpoint: '/chat'    
 };

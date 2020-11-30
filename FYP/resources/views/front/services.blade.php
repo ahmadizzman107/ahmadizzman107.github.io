@@ -11,7 +11,7 @@
 
             <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
                 <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
-                <h4 class="title"><a href="">Artificial Intelligence(AI)-Powered Chatbot(KRISPI)</a></h4>
+                <h4 class="title"><a href="">Artificial Intelligence (AI)-Powered Chatbot (KRISPI)</a></h4>
                 <p class="description">KRISPI is an AI-powered chatbot. It able tu synthesize its own answers and handle Malay, English & Manglish.</p>
             </div>
             <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">

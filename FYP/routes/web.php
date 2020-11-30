@@ -15,9 +15,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('/','WelcomeController');
-Route::get('/pages/{slug}','WelcomeController@showPage');
-Route::get('/pay','WelcomeController@showPay');
-Route::get('/chat','WelcomeController@showChat');
+Route::post('/page/{slug}','WelcomeController@showPage');
+
 Auth::routes();
 Route::get('/admin', 'HomeController@index')->name('admin');
 Route::resource('admin/posts','PostsController');
+Auth::routes();
+Route::get('/admin/blog', function () { return view('blog'); })->name('blog');
+
+// Route::get('/home', 'HomeController@index')->name('home');
+// Route::view('/','home');
+
+Route::get('/posts',function(){
+	return view('posts.create');
+});
