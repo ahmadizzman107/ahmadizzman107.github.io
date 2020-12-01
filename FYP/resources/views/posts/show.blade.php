@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <script>
@@ -12,7 +12,7 @@
         }
     </script>
     
-    <div class="container">
+    <div class="container" style="padding-top: 50px;">
         <div>
             <a href="{{ url()->previous() }}">Back</a>
         </div>
