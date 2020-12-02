@@ -35,3 +35,6 @@ Route::put('/admin/posts/{id}', [PostsController::class,'update'])->name('update
 Route::get('/admin/posts/{id}/edit', [PostsController::class,'edit'])->name('edit');//Display editable post form
 
 Route::get('/admin/blog', function () { return view('blog'); })->name('blog');
+Route::get('main', function () {
+    return view('main');
+});
