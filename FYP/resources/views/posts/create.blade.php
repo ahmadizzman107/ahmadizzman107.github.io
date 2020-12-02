@@ -1,9 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-        <div>
-            
-        </div>
     <div class="container" style="padding-top: 50px;">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -27,8 +24,8 @@
                                 <label class="custom-file-label" for="customFile">Choose file</label>
                             </div>
                             <div style="padding-top: 30px">
-                                <button type="submit" value="Create"></button>
-                                <button href="{{ url()->previous() }}">ss</button>
+                                <button type="submit" value="Create" class="button">Create</button>
+                                <a href="{{ url()->previous() }}" class="button">Back</a>
                             </div>
                         </form>
                         

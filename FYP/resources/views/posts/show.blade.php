@@ -13,28 +13,31 @@
     </script>
     
     <div class="container" style="padding-top: 50px;">
-        <div>
-            <a href="{{ url()->previous() }}">Back</a>
-        </div>
-        <h1>{{$post->title}}</h1>
-        <div>
-            <img src={{ $imagePath }}>
-        </div>
-        <div>
-            <p>{{$post->body}}</p>
-        </div>
-        <div>
-        </div>
-        <hr>
-        <small>Posted at {{$post->created_at}}</small>
-        <hr>
-        <div>
-            <a href="{{ route('edit',$post->id) }}" class="btn btn-primary">Edit</a>
-            
-            <form action="{{ route('destroy',$post->id) }}" method="POST" onsubmit="return ConfirmDelete()">
-                @csrf
-                <button type="submit">Delete</button>
-            </form>
+        <div class="col-md-10">
+            <div class="card" style="box-shadow:-5px 2px;">
+                <div class="card-header" style="background-color: #3A0B37;color: white;">{{$post->title}}</div>
+                <div class="card-body">
+                    <div>
+                        <img src={{ $imagePath }}>
+                    </div>
+                    <div>
+                        <p>{{$post->body}}</p>
+                    </div>
+                    <div>
+                    </div>
+                    <hr>
+                    <small>Posted at {{$post->created_at}}</small>
+                    <hr>
+                    <div>
+                        <form action="{{ route('destroy',$post->id) }}" method="POST" onsubmit="return ConfirmDelete()">
+                            @csrf
+                            <a href="{{ route('edit',$post->id) }}" class="button">Edit</a>
+                            <button type="submit" class="button">Delete</button>
+                            <a href="{{ url()->previous() }}" class="button">Back</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

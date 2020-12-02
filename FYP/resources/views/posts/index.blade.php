@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card" style="box-shadow:-5px 2px;">
-                    <div class="card-header" style="background-color: #3A0B37;color: white;">Dashboard</div>
+                    <div class="card-header" style="background-color: #3A0B37;color: white;"><h1>Posts</h1></div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -13,7 +13,6 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <h1>Posts</h1>
                         <div>
                             @if (count($posts) > 0)
                                 @foreach ($posts as $post)
@@ -33,7 +32,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div>
-                <a href="{{ route('posts') }}" class="btn btn-primary">Create</a>
+                <a href="{{ route('posts') }}" class="button">Create</a>
             </div>
 
         </div>

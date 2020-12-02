@@ -11,7 +11,7 @@ class HomeController extends Controller
     public function index()
     {
         
-        return view('main');
+        return view('welcome');
     }
 
     public function store(Request $request)
