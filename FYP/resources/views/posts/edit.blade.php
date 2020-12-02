@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container">
+    <div class="container" style="padding-top: 50px;">
         <h1>Edit Post</h1>
         <div>
             <a href="{{ url()->previous() }}">Back</a>

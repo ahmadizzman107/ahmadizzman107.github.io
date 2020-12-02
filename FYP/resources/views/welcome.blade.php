@@ -1,4 +1,4 @@
--<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -45,7 +45,6 @@
 <!-- ======= Header ======= -->
 <header id="header">
     <div class="container-fluid">
-
         <div id="logo" class="pull-left">
             <img src="/assets/img/techno.png" width="92" height="99">
             <!-- Uncomment below if you prefer to use an image logo -->
