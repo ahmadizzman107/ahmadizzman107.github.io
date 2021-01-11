@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EditAboutController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -38,3 +39,6 @@ Route::get('/admin/blog', function () { return view('blog'); })->name('blog');
 Route::get('main', function () {
     return view('main');
 });
+// ADMIN CRUD
+Route::get('edit-about', [EditAboutController::class, 'edit'])->name('edit-about');//Display edit form for About Us section
+Route::put('edit-about', [EditAboutController::class, 'update'])->name('update-about');//Commit update of About Us section

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Feedback;
+use App\About;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 
@@ -10,8 +11,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        
-        return view('welcome');
+        $about = About::find(1);
+
+        return view('main')->with('about',$about);
     }
 
     public function store(Request $request)

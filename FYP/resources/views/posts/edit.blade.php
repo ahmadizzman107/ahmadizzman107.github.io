@@ -9,12 +9,13 @@
                     <div class="card-header" style="background-color: #3A0B37;color: white;">Edit Post</div>
 
                     <div class="card-body">
-                        <form action="{{ route('update',$post->id) }}" method="POST"  enctype="multipart/form-data">
+                        <form action="{{ route('update', $post->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
-                            <div >
+                            <div>
                                 <label for="title">Title</label>
-                                <input type="text" name="title" id="title" placeholder="Post Title" value="{{ $post->title }}">
+                                <input type="text" name="title" id="title" placeholder="Post Title"
+                                    value="{{ $post->title }}">
                             </div>
                             <div>
                                 <label for="body">Body</label>
@@ -29,7 +30,7 @@
                                 <a href="{{ url()->previous() }}" class="button">Back</a>
                             </div>
                         </form>
-                        
+
                     </div>
                 </div>
             </div>

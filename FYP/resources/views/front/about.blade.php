@@ -3,8 +3,8 @@
     <div class="container">
 
         <header class="section-header">
-            <h3>About Us</h3>
-            <p>FSKTM Technovations is a business wing of Faculty of Computer Science & Information Technology, University of Malaya. Our core businesses are providing advanced and state-of-the-arts training, seminars and workshop for sustainable human capital development and offering enterprise system development and IT services for both public and private sectors. </p>
+            <h3>{{ $about->title_about }}</h3>
+            <p>{{ $about->desc_about }}</p>
         </header>
 
         <div class="row about-cols">
@@ -15,10 +15,9 @@
                         <img src="/assets/img/our-mission.png" alt="" class="img-fluid">
                         <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
                     </div>
-                    <h2 class="title"><a href="#">Our Mission</a></h2>
+                    <h2 class="title"><a href="#">{{ $about->title_mission }}</a></h2>
                     <p>
-                        “To become competitive technological solutions provider that are cost effective and
-                        cutting edge altogether in IT fields”
+                        {{ $about->desc_mission }}
                     </p>
                 </div>
             </div>
@@ -29,10 +28,9 @@
                         <img src="/assets/img/our-people.png" alt="" class="img-fluid">
                         <div class="icon"><i class="ion-ios-list-outline"></i></div>
                     </div>
-                    <h2 class="title"><a href="#"></a>Our People</h2>
+                    <h2 class="title"><a href="#"></a>{{ $about->title_people }}</h2>
                     <p>
-                        We firmly believe that our success is based on our trusted pool of experts as they make
-                        our organization the reputable IT specialist, it is today.
+                        {{ $about->desc_people }}
                     </p>
                 </div>
             </div>
@@ -43,10 +41,9 @@
                         <img src="/assets/img/our-vision.png" alt="" class="img-fluid">
                         <div class="icon"><i class="ion-ios-eye-outline"></i></div>
                     </div>
-                    <h2 class="title"><a href="#">Our Vision</a></h2>
+                    <h2 class="title"><a href="#">{{ $about->title_vision }}</a></h2>
                     <p>
-                        “To be one of the leading IT training provider across the globe”
-                        “To be the key player in pioneering a new technology in global”
+                        {{ $about->desc_vision }}
                     </p>
                 </div>
             </div>
