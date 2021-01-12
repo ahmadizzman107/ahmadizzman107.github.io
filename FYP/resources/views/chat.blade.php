@@ -1,3 +1,4 @@
+{{-- To be deleted soon --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>

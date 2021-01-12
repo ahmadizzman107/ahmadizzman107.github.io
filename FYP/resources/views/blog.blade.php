@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-
+{{-- To be deleted soon --}}
 @section('title')
 @section('content')
 <div class="container" style="padding-top: 50px;">

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\ShowEventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,9 @@ Route::get('/admin/blog', function () { return view('blog'); })->name('blog');
 Route::get('main', function () {
     return view('main');
 });
+
+Route::get('show-event/{id}', [ShowEventController::class, 'show'])->name('show-event');//Display event content - similar to 'show'
+
 // ADMIN CRUD
 Route::get('edit-about', [EditAboutController::class, 'edit'])->name('edit-about');//Display edit form for About Us section
 Route::put('edit-about', [EditAboutController::class, 'update'])->name('update-about');//Commit update of About Us section
