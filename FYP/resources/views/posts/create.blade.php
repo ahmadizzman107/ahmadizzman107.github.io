@@ -16,12 +16,29 @@
                             </div>
                             <div>
                                 <label for="body">Body</label>
-                                <input type="text" name="body" id="body" placeholder="Post Body">
+                                <textarea name="body" id="body" cols="50"
+                                    rows="10"></textarea>
                             </div>
                             <label for="body">Image</label>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="customFile" name="image">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                            <div>
+                                <label for="date">Date</label>
+                                <input type="date" id="date" name="date">
+                            </div>
+                            <div>
+                                <label for="time_start">Starting Time</label>
+                                <input type="time" id="time_start" name="time_start">
+                            </div>
+                            <div>
+                                <label for="time_end">End Time</label>
+                                <input type="time" id="time_end" name="time_end">
+                            </div>
+                            <div>
+                                <label for="location">Location</label>
+                                <input type="text" id="location" name="location">
                             </div>
                             <div style="padding-top: 30px">
                                 <button type="submit" value="Create" class="button">Create</button>

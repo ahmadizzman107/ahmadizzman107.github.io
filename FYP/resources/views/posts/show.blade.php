@@ -24,6 +24,18 @@
                         <p>{{$post->body}}</p>
                     </div>
                     <div>
+                        <span>Date: {{ \Carbon\Carbon::parse($post->date)->format('j F, Y') }}</span>
+                        <div>
+                            <span>Start Time: {{ \Carbon\Carbon::parse($post->time_start)->format('h:i A') }}</span>
+                        </div>
+                        <div>
+                            <span>End Time: {{ \Carbon\Carbon::parse($post->time_end)->format('h:i A') }}</span>
+                        </div>
+                        
+                        
+                    </div>
+                    <div>
+                        <span>Location: {{ $post->location }}</span>
                     </div>
                     <hr>
                     <small>Posted at {{$post->created_at}}</small>

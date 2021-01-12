@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\EditAboutController;
+use App\Http\Controllers\EditClientsController;
+use App\Http\Controllers\EditServicesController;
+use App\Http\Controllers\EditFooterController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -42,3 +45,18 @@ Route::get('main', function () {
 // ADMIN CRUD
 Route::get('edit-about', [EditAboutController::class, 'edit'])->name('edit-about');//Display edit form for About Us section
 Route::put('edit-about', [EditAboutController::class, 'update'])->name('update-about');//Commit update of About Us section
+
+Route::get('edit-services', [EditServicesController::class, 'edit'])->name('edit-services');//Display edit form for Services section
+Route::put('edit-services', [EditServicesController::class, 'update'])->name('update-services');//Commit update of Services section
+
+Route::get('index-client', [EditClientsController::class, 'index'])->name('index-client');//Display lists of Clients
+
+Route::get('create-client', [EditClientsController::class, 'create'])->name('create-client');//Display create form for Clients section
+Route::post('create-client', [EditClientsController::class, 'store'])->name('store-client');
+
+Route::get('edit-client/{id}', [EditClientsController::class, 'edit'])->name('edit-client');//Display edit form for Clients section
+Route::put('edit-client/{id}', [EditClientsController::class, 'update'])->name('update-client');//Commit update of Clients section
+Route::post('edit-client/{id}', [EditClientsController::class, 'destroy'])->name('destroy-client');//Delete client content
+
+Route::get('edit-footer', [EditFooterController::class, 'edit'])->name('edit-footer');//Display edit form for Footer section
+Route::put('edit-footer', [EditFooterController::class, 'update'])->name('update-footer');//Commit update of Footer section

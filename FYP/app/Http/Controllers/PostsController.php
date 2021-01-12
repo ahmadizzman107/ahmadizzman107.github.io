@@ -45,6 +45,10 @@ class PostsController extends Controller
                     'title' => 'required',
                     'body' => 'required',
                     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                    'date' => 'required',
+                    'time_start' => 'required',
+                    'time_end' => 'required',
+                    'location' => 'required',
                 ]);
                 $imageName = time().'.'.$request->image->extension();
                 $request->image->move(public_path('assets/images'), $imageName);// Move file into public path as given name
@@ -54,6 +58,10 @@ class PostsController extends Controller
                     'body' => $request->body,
                     'image' => $request->image->getClientOriginalName(),
                     'url' => $imageName,
+                    'date' => $request->date,
+                    'time_start' => $request->time_start,
+                    'time_end' => $request->time_end,
+                    'location' => $request->location,
                 ]);
         return redirect()->route('admin');
     }
@@ -109,6 +117,10 @@ class PostsController extends Controller
 
         $post->title = $request->title;//Change DB column value
         $post->body = $request->body;
+        $post->date = $request->date;
+        $post->time_start = $request->time_start;
+        $post->time_end = $request->time_end;
+        $post->location = $request->location;
         
          $post->update();//Update DB (Apply change)
         

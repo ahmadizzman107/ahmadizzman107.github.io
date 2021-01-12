@@ -3,8 +3,8 @@
     <div class="container">
 
         <header class="section-header">
-            <h3>{{ $about->title_about }}</h3>
-            <p>{{ $about->desc_about }}</p>
+            <h3>{{ $data['about']->title_about }}</h3>
+            <p>{{ $data['about']->desc_about }}</p>
         </header>
 
         <div class="row about-cols">
@@ -15,9 +15,9 @@
                         <img src="/assets/img/our-mission.png" alt="" class="img-fluid">
                         <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
                     </div>
-                    <h2 class="title"><a href="#">{{ $about->title_mission }}</a></h2>
+                    <h2 class="title"><a href="#">{{ $data['about']->title_mission }}</a></h2>
                     <p>
-                        {{ $about->desc_mission }}
+                        {{ $data['about']->desc_mission }}
                     </p>
                 </div>
             </div>
@@ -28,9 +28,9 @@
                         <img src="/assets/img/our-people.png" alt="" class="img-fluid">
                         <div class="icon"><i class="ion-ios-list-outline"></i></div>
                     </div>
-                    <h2 class="title"><a href="#"></a>{{ $about->title_people }}</h2>
+                    <h2 class="title"><a href="#"></a>{{ $data['about']->title_people }}</h2>
                     <p>
-                        {{ $about->desc_people }}
+                        {{ $data['about']->desc_people }}
                     </p>
                 </div>
             </div>
@@ -41,9 +41,9 @@
                         <img src="/assets/img/our-vision.png" alt="" class="img-fluid">
                         <div class="icon"><i class="ion-ios-eye-outline"></i></div>
                     </div>
-                    <h2 class="title"><a href="#">{{ $about->title_vision }}</a></h2>
+                    <h2 class="title"><a href="#">{{ $data['about']->title_vision }}</a></h2>
                     <p>
-                        {{ $about->desc_vision }}
+                        {{ $data['about']->desc_vision }}
                     </p>
                 </div>
             </div>

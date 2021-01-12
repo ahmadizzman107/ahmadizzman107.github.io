@@ -3,42 +3,46 @@
     <div class="container">
 
         <header class="section-header wow fadeInUp">
-            <h3>Product & Services</h3>
-            <p></p>
+            <h3>{{ $data['service']->title_services }}</h3>
         </header>
 
         <div class="row">
-
+            {{-- Tile 1 --}}
             <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
                 <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
-                <h4 class="title"><a href="">Artificial Intelligence (AI)-Powered Chatbot (KRISPI)</a></h4>
-                <p class="description">KRISPI is an AI-powered chatbot. It able tu synthesize its own answers and handle Malay, English & Manglish.</p>
+                <h4 class="title"><a href="">{{ $data['service']->title_tile_1 }}</a></h4>
+                <p class="description">{{ $data['service']->desc_tile_1 }}</p>
             </div>
+            {{-- Tile 2 --}}
             <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
                 <div class="icon"><i class="ion-ios-bookmarks-outline"></i></div>
-                <h4 class="title"><a href="">Robotic Process Automation</a></h4>
-                <p class="description">Robotic process automation (RPA) refers to software that can be easily programmed to do basic tasks across applications just as human workers do. ... RPA software is designed to reduce the burden of repetitive, simple tasks on employees.</p>
+                <h4 class="title"><a href="">{{ $data['service']->title_tile_2 }}</a></h4>
+                <p class="description">{{ $data['service']->desc_tile_2 }}</p>
             </div>
+            {{-- Tile 3 --}}
             <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
                 <div class="icon"><i class="ion-ios-paper-outline"></i></div>
-                <h4 class="title"><a href="">Jabatan Pendidikan Tinggi Gateway</a></h4>
-                <p class="description">Hybrid-mobile app for Malaysia's Department of Higher Education. Visually apprealing: Designed with great UI/UX design in mind.s</p>
+                <h4 class="title"><a href="">{{ $data['service']->title_tile_3 }}</a></h4>
+                <p class="description">{{ $data['service']->desc_tile_3 }}</p>
             </div>
+            {{-- Tile 4 --}}
             <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
                 <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
-                <h4 class="title"><a href="">Opinion Mining & Sentiment Analysis</a></h4>
-                <p class="description">Sentiment analysis, also referred to as opinion mining, is an approach to natural language processing (NLP) that identifies the emotional tone behind a body of text. This is a popular way for organizations to determine and categorize opinions about a product, service or idea.
+                <h4 class="title"><a href="">{{ $data['service']->title_tile_4 }}</a></h4>
+                <p class="description">{{ $data['service']->desc_tile_4 }}
                 </p>
             </div>
+            {{-- Tile 5 --}}
             <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
                 <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
-                <h4 class="title"><a href="">Automated Information Extraction</a></h4>
-                <p class="description">Information Extraction is the part of a greater puzzle which deals with the problem of devising automatic methods for text management, beyond its transmission, storage and display.</p>
+                <h4 class="title"><a href="">{{ $data['service']->title_tile_5 }}</a></h4>
+                <p class="description">{{ $data['service']->desc_tile_5 }}</p>
             </div>
+            {{-- Tile 6 --}}
             <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
                 <div class="icon"><i class="ion-ios-people-outline"></i></div>
-                <h4 class="title"><a href="">Internet of Things (IoT) Solutions</a></h4>
-                <p class="description">The Internet of Things, or "IoT" for short, is about extending the power of the internet beyond computers and smartphones to a whole range of other things, processes, and environments.</p>
+                <h4 class="title"><a href="">{{ $data['service']->title_tile_6 }}</a></h4>
+                <p class="description">{{ $data['service']->desc_tile_6 }}</p>
             </div>
 
         </div>

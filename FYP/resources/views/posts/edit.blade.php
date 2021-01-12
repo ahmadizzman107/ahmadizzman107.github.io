@@ -25,6 +25,22 @@
                                 <input type="file" class="custom-file-input" id="customFile" name="image">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
                             </div>
+                            <div>
+                                <label for="date">Date</label>
+                                <input type="date" id="date" name="date" value="{{ $post->date }}">
+                            </div>
+                            <div>
+                                <label for="time_start">Starting Time</label>
+                                <input type="time" id="time_start" name="time_start" value="{{ $post->time_start }}">
+                            </div>
+                            <div>
+                                <label for="time_end">End Time</label>
+                                <input type="time" id="time_end" name="time_end" value="{{ $post->time_end }}">
+                            </div>
+                            <div>
+                                <label for="location">Location</label>
+                                <input type="text" id="location" name="location" value="{{ $post->location }}">
+                            </div>
                             <div style="padding-top: 30px">
                                 <button type="submit" class="button">Update</button>
                                 <a href="{{ url()->previous() }}" class="button">Back</a>

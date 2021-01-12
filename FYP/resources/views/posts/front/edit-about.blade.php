@@ -1,15 +1,14 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container" style="padding-top: 50px;">
+    <div class="container" style="padding-top: 50px;">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card" style="box-shadow:-5px 2px;">
                     <div class="card-header" style="background-color: #3A0B37;color: white;">Edit About Us</div>
 
                     <div class="card-body">
-                        <form action="{{ route('edit-about') }}" method="POST"
-                            enctype="multipart/form-data" id="editAboutForm" name="editAboutForm">
+                        <form action="{{ route('update-about') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             {{-- About --}}

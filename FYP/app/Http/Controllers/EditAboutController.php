@@ -15,7 +15,7 @@ class EditAboutController extends Controller
     public function edit()
     {
         $about = About::find(1);
-        return view('posts.about.edit-about')->with('about',$about);
+        return view('posts.front.edit-about')->with('about',$about);
     }
 
     public function update(Request $request)

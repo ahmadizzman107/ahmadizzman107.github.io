@@ -12,7 +12,8 @@ class Post extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'body','image','url'
+        'title', 'body','image','url',
+        'date', 'time_start', 'time_end', 'location'
     ];
     public function user()
     {
