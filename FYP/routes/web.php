@@ -41,10 +41,12 @@ Route::get('/admin/posts/{id}/edit', [PostsController::class,'edit'])->name('edi
 
 Route::get('/admin/blog', function () { return view('blog'); })->name('blog');
 Route::get('main', function () {
-    return view('main');
+    return view('events.success');
 });
 
 Route::get('show-event/{id}', [ShowEventController::class, 'show'])->name('show-event');//Display event content - similar to 'show'
+Route::get('create-event/{id}', [ShowEventController::class, 'create'])->name('create-event');//Display event content - similar to 'show'
+Route::post('create-event/{id}', [ShowEventController::class, 'store'])->name('store-register');//Store participant registration
 
 // ADMIN CRUD
 Route::get('edit-about', [EditAboutController::class, 'edit'])->name('edit-about');//Display edit form for About Us section

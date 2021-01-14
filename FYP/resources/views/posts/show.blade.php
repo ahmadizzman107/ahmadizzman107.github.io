@@ -35,6 +35,9 @@
                     <div>
                         <span>Location: {{ $post->location }}</span>
                     </div>
+                    <div>
+                        <span>Fees: {{ isset($post->fees) ? 'RM '.$post->fees : 'FOC' }}</span>
+                    </div>
                     <hr>
                     <small>Posted at {{ $post->created_at }}</small>
                     <hr>

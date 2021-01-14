@@ -20,12 +20,12 @@
                             {{-- Contacts --}}
                             <div>
                                 <label for="tel_no">Tel No. :</label>
-                                <input type="tel" name="tel_no" id="tel_no" pattern="(+60)[0-9]-[0-9]{4} [0-9]{4}"
+                                <input type="tel" name="tel_no" id="tel_no" pattern="[0-9]-[0-9]{4} [0-9]{4}"
                                     value="{{ $footer->tel_no }}">
                             </div>
                             <div>
                                 <label for="fax_no">Fax No. :</label>
-                                <input type="tel" name="fax_no" id="fax_no" pattern="(+60)[0-9]-[0-9]{4} [0-9]{4}"
+                                <input type="tel" name="fax_no" id="fax_no" pattern="[0-9]-[0-9]{4} [0-9]{4}"
                                     value="{{ $footer->fax_no }}">
                             </div>
                             <div>

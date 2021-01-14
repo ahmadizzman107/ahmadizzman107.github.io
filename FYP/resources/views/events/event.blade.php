@@ -21,13 +21,17 @@
                 <div>
                     <span>Location: {{ $post->location }}</span>
                 </div>
+                <div>
+                    <span>Fees: {{ isset($post->fees) ? 'RM '.$post->fees : 'FOC' }}</span>
+                </div>
                 <hr>
                 <small>Posted at {{ $post->created_at }}</small>
                 <hr>
                 <div>
                     <form action="" method="POST">
                         @csrf
-                        <a href="" class="button">Register</a>
+                        <a data-attr="{{ route('create-event', $post->id) }}" class="button" 
+                        data-target="#xLargeModal" id="xLargeButton">Register</a>
                         <button type="button" class="button" data-dismiss="modal">Back</button>
                     </form>
                 </div>

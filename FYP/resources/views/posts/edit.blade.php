@@ -38,6 +38,10 @@
                                 <input type="time" id="time_end" name="time_end" value="{{ $post->time_end }}">
                             </div>
                             <div>
+                                <label for="fees">Fees</label>
+                                <input type="number" id="fees" name="fees" value="{{ $post->fees }}">
+                            </div>
+                            <div>
                                 <label for="location">Location</label>
                                 <input type="text" id="location" name="location" value="{{ $post->location }}">
                             </div>

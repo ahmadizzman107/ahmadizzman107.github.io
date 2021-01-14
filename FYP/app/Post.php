@@ -13,10 +13,16 @@ class Post extends Model
      */
     protected $fillable = [
         'title', 'body','image','url',
-        'date', 'time_start', 'time_end', 'location'
+        'date', 'time_start', 'time_end', 
+        'location', 'fees'
     ];
     public function user()
     {
         $this->belongsTo('App/User');
+    }
+
+    public function participant()
+    {
+        $this->hasMany('App/Paticipant');
     }
 }

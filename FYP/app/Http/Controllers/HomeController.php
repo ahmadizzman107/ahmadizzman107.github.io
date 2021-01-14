@@ -38,8 +38,4 @@ class HomeController extends Controller
         return redirect()->back()->with('success','Feedback sent successfully');
     }
 
-    public function showPosts()
-    {
-        # code...
-    }
 }

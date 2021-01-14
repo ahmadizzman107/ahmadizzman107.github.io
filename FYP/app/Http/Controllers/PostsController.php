@@ -41,28 +41,28 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-                $request->validate([
-                    'title' => 'required',
-                    'body' => 'required',
-                    'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                    'date' => 'required',
-                    'time_start' => 'required',
-                    'time_end' => 'required',
-                    'location' => 'required',
-                ]);
-                $imageName = time().'.'.$request->image->extension();
-                $request->image->move(public_path('assets/images'), $imageName);// Move file into public path as given name
-                
-                Post::create([
-                    'title' => $request->title,
-                    'body' => $request->body,
-                    'image' => $request->image->getClientOriginalName(),
-                    'url' => $imageName,
-                    'date' => $request->date,
-                    'time_start' => $request->time_start,
-                    'time_end' => $request->time_end,
-                    'location' => $request->location,
-                ]);
+        $request->validate([
+            'title' => 'required',
+            'body' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'date' => 'required',
+            'time_start' => 'required',
+            'time_end' => 'required',
+            'location' => 'required',
+        ]);
+        $imageName = time() . '.' . $request->image->extension();
+        $request->image->move(public_path('assets/images'), $imageName); // Move file into public path as given name
+
+        Post::create([
+            'title' => $request->title,
+            'body' => $request->body,
+            'image' => $request->image->getClientOriginalName(),
+            'url' => $imageName,
+            'date' => $request->date,
+            'time_start' => $request->time_start,
+            'time_end' => $request->time_end,
+            'location' => $request->location,
+        ]);
         return redirect()->route('admin');
     }
 
@@ -75,8 +75,8 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        $imagePath = asset('assets/images/'.$post->url);
-        return view('posts.show')->with('post',$post)->with('imagePath',$imagePath);
+        $imagePath = asset('assets/images/' . $post->url);
+        return view('posts.show')->with('post', $post)->with('imagePath', $imagePath);
     }
 
     /**
@@ -88,7 +88,7 @@ class PostsController extends Controller
     public function edit(Request $request, $id)
     {
         $post = Post::find($id);
-        return view('posts.edit')->with('post',$post);
+        return view('posts.edit')->with('post', $post);
     }
 
     /**
@@ -101,30 +101,30 @@ class PostsController extends Controller
     public function update(Request $request, $id)
     {
         $post = Post::find($id);
-            
-        if($request->image != null){//Check if file input is not empty
+
+        if ($request->image != null) { //Check if file input is not empty
             $imagePath = public_path('assets/images/');
-            
-            if($post->url !='' || $post->url != null){//Check if there is image data in DB
-                File::delete(public_path('assets/images/'.$post->url));
+
+            if ($post->url != '' || $post->url != null) { //Check if there is image data in DB
+                File::delete(public_path('assets/images/' . $post->url));
             }
-            $imageName = time().'.'.$request->image->extension();
-            $request->image->move(public_path('assets/images'), $imageName);//Store new image file
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('assets/images'), $imageName); //Store new image file
 
             $post->image = $request->image->getClientOriginalName();
             $post->url = $imageName;
         }
 
-        $post->title = $request->title;//Change DB column value
+        $post->title = $request->title; //Change DB column value
         $post->body = $request->body;
         $post->date = $request->date;
         $post->time_start = $request->time_start;
         $post->time_end = $request->time_end;
         $post->location = $request->location;
-        
-         $post->update();//Update DB (Apply change)
-        
-        return redirect()->route('show',$id);
+
+        $post->update(); //Update DB (Apply change)
+
+        return redirect()->route('show', $id);
     }
 
     /**
@@ -135,13 +135,12 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        
+
         $post = Post::find($id);
-        if($post->url !='' || $post->url != null)
-            File::delete(public_path('assets/images/'.$post->url));//File Facade uses public_path
+        if ($post->url != '' || $post->url != null)
+            File::delete(public_path('assets/images/' . $post->url)); //File Facade uses public_path
         $post->delete();
 
-        return redirect()->route('admin');    
+        return redirect()->route('admin');
     }
-
 }

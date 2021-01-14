@@ -38,7 +38,7 @@
     ======================================================== -->
 
     <!-- Modal Scripts -->
-    
+
     <!-- Script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -105,6 +105,11 @@
         @include('events.modal')
         <!-- Modal -->
 
+        @if (session()->has('status'))
+            <div class="alert alert-success">
+                {{ session()->get('status') }}
+            </div>
+        @endif
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->

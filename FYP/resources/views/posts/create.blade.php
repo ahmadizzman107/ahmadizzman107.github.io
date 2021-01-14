@@ -40,6 +40,10 @@
                                 <label for="location">Location</label>
                                 <input type="text" id="location" name="location">
                             </div>
+                            <div>
+                                <label for="fees">Fees</label>
+                                <input type="number" id="fees" name="fees" placeholder="Leave blank if FOC">
+                            </div>
                             <div style="padding-top: 30px">
                                 <button type="submit" value="Create" class="button">Create</button>
                                 <a href="{{ url()->previous() }}" class="button">Back</a>
