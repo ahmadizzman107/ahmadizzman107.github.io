@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Participant;
 use App\Post;
+use App\Participant;
 use Illuminate\Http\Request;
+use App\Mail\EventRegistered;
 use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Mail;
 
 class ShowEventController extends Controller
 {
@@ -34,12 +37,17 @@ class ShowEventController extends Controller
                 'institution' => 'required',
             ]);
 
-            Participant::create([
+            Post::find($id)->participant()->create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'phone' => $request->phone,
-                'position' => $request->position,
+                'position' => $request->position,                
                 'institution' => $request->institution,
+            ]);
+
+            Post::find($id)->participant()->update([
+                'validated' => true,
+                'sent_email' => true,
             ]);
         } else {
             $request->validate([
@@ -54,7 +62,7 @@ class ShowEventController extends Controller
             $fileName = time() . '.' . $request->receipt->extension();
             $request->receipt->move(public_path('assets/rec'), $fileName);
 
-            Participant::create([
+            Post::find($id)->participant()->create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'phone' => $request->phone,
@@ -64,7 +72,9 @@ class ShowEventController extends Controller
                 'url' => $fileName,
             ]);
         }
-
+        
+        Mail::to($request->email)->send(new EventRegistered($request, $id));
+        
         Toastr::success('Registration successful', 'Success', ["positionClass" => "toast-top-center"]);
         return redirect()->back();
     }

@@ -21,6 +21,7 @@
                                 <label for="body">Body</label>
                                 <input type="text" name="body" id="body" placeholder="Post Body" value="{{ $post->body }}">
                             </div>
+                            <label for="body">Image</label>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="customFile" name="image">
                                 <label class="custom-file-label" for="customFile">Choose file</label>

@@ -27,19 +27,19 @@
                         <div>
                             <label>Current Position</label><br>
                             {{-- Radio --}}
-                            <input type="radio" id="lect" name="position" value="lecturer">
+                            <input type="radio" id="lect" name="position" value="Lecturer">
                             <label for="lect">Lecturer</label><br>
-                            <input type="radio" id="teach" name="position" value="teacher">
+                            <input type="radio" id="teach" name="position" value="Teacher">
                             <label for="teach">Teacher</label><br>
-                            <input type="radio" id="research" name="position" value="researcher">
+                            <input type="radio" id="research" name="position" value="Researcher">
                             <label for="research">Researcher</label><br>
-                            <input type="radio" id="ugstu" name="position" value="undergrad">
+                            <input type="radio" id="ugstu" name="position" value="Undergraduate">
                             <label for="ugstu">Undergratuates Student</label><br>
-                            <input type="radio" id="pgstu" name="position" value="postgrad">
+                            <input type="radio" id="pgstu" name="position" value="Postgraduate">
                             <label for="pgstu">Postgraduates Student</label><br>
-                            <input type="radio" id="schstu" name="position" value="school">
+                            <input type="radio" id="schstu" name="position" value="School">
                             <label for="schstu">School Student</label><br>
-                            <input type="radio" id="other" name="position" value="other">
+                            <input type="radio" id="other" name="position" value="Other">
                             <label for="other">Other</label>
                         </div>
                         {{-- Institution --}}

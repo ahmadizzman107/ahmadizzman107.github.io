@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Mail;
+
+use App\Post;
+use Illuminate\Http\Request;
+use Illuminate\Bus\Queueable;
+use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
+
+class EventRegistered extends Mailable
+{
+    use Queueable, SerializesModels;
+
+    public $post;
+    public $participant;
+    /**
+     * Create a new message instance.
+     *
+     * @return void
+     */
+    public function __construct(Request $request, $id)
+    {
+        $this->post = Post::find($id);
+        $this->participant = $request;
+    }
+
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+        
+        return $this->markdown('emails.posts.event-register');
+    }
+}

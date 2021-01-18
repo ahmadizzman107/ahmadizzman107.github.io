@@ -62,6 +62,7 @@ class PostsController extends Controller
             'time_start' => $request->time_start,
             'time_end' => $request->time_end,
             'location' => $request->location,
+            'fees' => $request->fees,
         ]);
         return redirect()->route('admin');
     }
@@ -121,6 +122,7 @@ class PostsController extends Controller
         $post->time_start = $request->time_start;
         $post->time_end = $request->time_end;
         $post->location = $request->location;
+        $post->fees = $request->fees;
 
         $post->update(); //Update DB (Apply change)
 

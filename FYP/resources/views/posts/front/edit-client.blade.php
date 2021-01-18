@@ -41,6 +41,7 @@
                         </form>
                         <form action="{{ route('destroy-client',$client->id) }}" method="POST" onsubmit="return ConfirmDelete()">
                             @csrf
+                            @method('DELETE')
                             <button type="submit" class="button">Delete</button>
                         </form>
                     </div>

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Feedback;
-use App\About;
-use App\Service;
 use App\Post;
+use App\About;
 use App\Client;
 use App\Footer;
+use App\Service;
+use App\Feedback;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 

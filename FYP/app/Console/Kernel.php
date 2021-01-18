@@ -2,6 +2,9 @@
 
 namespace App\Console;
 
+use App\Post;
+use DateTimeZone;
+use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -24,7 +27,18 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $locale = new DateTimeZone('Asia/Kuala_Lumpur');
+        $currentTime = Carbon::now($locale);
+        $currentDate = Carbon::today();
+        $posts = Post::where([
+            ['date', '<', $currentDate],
+            ['has_broadcast','=', false]
+        ])->get();
+
+        foreach ($posts as $post) {
+            $command = 'mail:send ' . $post->id;
+            $schedule->command($command)->daily();
+        }
     }
 
     /**
@@ -34,7 +48,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }

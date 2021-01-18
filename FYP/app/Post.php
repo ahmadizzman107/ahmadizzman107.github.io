@@ -23,6 +23,11 @@ class Post extends Model
 
     public function participant()
     {
-        $this->hasMany('App/Paticipant');
+       return $this->hasMany(Participant::class);
+    }
+
+    public function rating()
+    {
+        return $this->hasManyThrough(Rating::class, Participant::class);
     }
 }

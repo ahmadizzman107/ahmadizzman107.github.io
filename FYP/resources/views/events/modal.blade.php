@@ -11,7 +11,7 @@
                 </div>
                 <div class="modal-body" id="smallBody">
                     <div>
-                        <!-- the result to be displayed apply here -->                
+                        <!-- the result to be displayed apply here -->
                     </div>
                 </div>
             </div>
@@ -38,6 +38,26 @@
     </div>
 
     <!-- large modal -->
+    <div class="modal fade" id="LargeModal" tabindex="-1" role="dialog" aria-labelledby="LargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="header" style="font-size: 27px">Details</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="LargeBody">
+                    <div>
+                        <!-- the result to be displayed apply here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- xlarge modal -->
     <div class="modal fade" id="xLargeModal" tabindex="-1" role="dialog" aria-labelledby="xLargeModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-xl" role="document">
@@ -111,6 +131,32 @@
         });
 
         // display a modal (large modal)
+        $(document).on('click', '#LargeButton', function(event) {
+            event.preventDefault();
+            let href = $(this).attr('data-attr');
+            $.ajax({
+                url: href,
+                beforeSend: function() {
+                    $('#loader').show();
+                },
+                // return the result
+                success: function(result) {
+                    $('#LargeModal').modal("show");
+                    $('#LargeBody').html(result).show();
+                },
+                complete: function() {
+                    $('#loader').hide();
+                },
+                error: function(jqXHR, testStatus, error) {
+                    console.log(error);
+                    alert("Page " + href + " cannot open. Error:" + error);
+                    $('#loader').hide();
+                },
+                timeout: 8000
+            })
+        });
+
+        // display a modal (xlarge modal)
         $(document).on('click', '#xLargeButton', function(event) {
             event.preventDefault();
             let href = $(this).attr('data-attr');
